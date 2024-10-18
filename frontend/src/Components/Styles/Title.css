@@ -1,0 +1,17 @@
+.form-title {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-title h2 {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.form-title div {
+  background: var(--gradient-color-1);
+  width: 100px;
+  height: 3px;
+}

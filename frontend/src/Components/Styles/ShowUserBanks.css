@@ -1,0 +1,47 @@
+.show-user-banks {
+    margin-top: 20px;
+}
+
+.banks-list-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    font-family: var(--font-family-1);
+}
+
+.bank-account-item {
+    background-color: #ffeed9;
+    padding: 10px 20px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.bank-account-item:hover {
+    transform: scale(1.01);
+    transition: 0.5s;
+    background-color: #ffe6c8;
+}
+
+.account-card-row {
+    justify-content: space-between;
+}
+
+.bankName {
+    font-weight: 600;
+}
+
+.account-no, .ifsc, .holder-name, .branch-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555555;
+}
+
+.account-actions {
+    border-top: 1px solid #555555;
+    margin-top: 5px;
+    padding-top: 10px;
+}

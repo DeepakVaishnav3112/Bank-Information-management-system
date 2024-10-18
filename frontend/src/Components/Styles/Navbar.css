@@ -1,0 +1,12 @@
+nav {
+    font-family: var(--font-family-1);
+    height: 70px;
+    background-color: var(--color-2);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+nav h1 span {
+    color: var(--color-1);
+}
