@@ -34,6 +34,11 @@ const Admin = () => {
       try {
         setLoading(true);
         const token = localStorage.getItem("token");
+        if (!token) {
+          setError("Token not found");
+          setLoading(false);
+          return;
+        }
         const response = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/api/admin/users/banks`,
           {
@@ -50,7 +55,7 @@ const Admin = () => {
         setLoading(false);
       } catch (error) {
         console.error("Error fetching bank accounts:", error.message);
-        setError("Failed to fetch bank accounts");
+        setError(error.message);
         setLoading(false);
       } finally {
         setLoading(false);

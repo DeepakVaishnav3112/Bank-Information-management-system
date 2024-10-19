@@ -12,6 +12,11 @@ const Home = () => {
   const fetchBankAccounts = async () => {
     try {
       const token = localStorage.getItem("token"); // Get the token from localStorage
+      if (!token) {
+        setError("Token not found");
+        setLoading(false);
+        return;
+      }
       const response = await axios.get(
         `${import.meta.env.VITE_BACKEND_URL}/api/user/bank`,
         {
