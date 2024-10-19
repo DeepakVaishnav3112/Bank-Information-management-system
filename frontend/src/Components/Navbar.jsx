@@ -9,7 +9,6 @@ const Navbar = () => {
     localStorage.removeItem('token')
     delete axios.defaults.headers.common['Authorization'];
     window.location.reload()
-    toast.success('Logged out successfully')
   }
 
   return (

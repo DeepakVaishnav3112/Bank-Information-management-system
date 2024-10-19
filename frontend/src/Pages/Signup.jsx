@@ -9,6 +9,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +19,8 @@ const Signup = () => {
       email: email,
       password: password,
     };
+
+    setIsLoading(true);
 
     try {
       const response = await axios.post(
@@ -51,6 +54,7 @@ const Signup = () => {
         toast.error("Signup failed", {
           position: "bottom-right"
         });
+        setIsLoading(false);
       }
     } catch (error) {
       if (error.response) {
@@ -64,6 +68,8 @@ const Signup = () => {
       toast.error("Signup failed", {
         position: "bottom-right"
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -94,7 +100,7 @@ const Signup = () => {
             required
           />
 
-          <div>
+          <div className="switch-page-btns">
             <NavLink className={`switch-page`} to="/user/login">
               <span className="switch-login-signup">Already have an account?</span>
             </NavLink>
@@ -104,7 +110,7 @@ const Signup = () => {
           </div>
 
           <button className="btn-1" type="submit">
-            Sign Up
+            { isLoading ? 'Signing Up' : 'Sign Up' }
           </button>
         </form>
       </div>

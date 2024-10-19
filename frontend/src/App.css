@@ -74,7 +74,7 @@
 }
 
 .edit-account {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -137,4 +137,35 @@
   width: 100%;
   border-radius: 30px;
   border: 1px solid #bebebe;
+}
+
+
+@media only screen and (max-width: 768px) {
+  nav h1 {
+      font-size: 10px;
+  }
+  nav {
+      height: 50px;
+  }
+  nav div {
+      font-size: 10px;
+  }
+
+  .main {
+    width: 90%;
+  }
+
+  .switch-page-btns {
+    display: flex;
+    flex-direction: column;
+    width: 200%;
+  }
+
+  .switch-page {
+    width: 100%;
+  }
+
+  .form-container form {
+    grid-template-columns: none;
+  }
 }

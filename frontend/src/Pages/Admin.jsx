@@ -9,7 +9,7 @@ const Admin = () => {
   const [filteredAccounts, setFilteredAccounts] = useState([]); // State for filtered accounts
   const [showInfo, setShowInfo] = useState(false);
   const [selectedAccount, setSelectedAccount] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [searchQuery, setSearchQuery] = useState(""); // New state for search input
 
@@ -32,6 +32,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchAllBankAccounts = async () => {
       try {
+        setLoading(true);
         const token = localStorage.getItem("token");
         const response = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/api/admin/users/banks`,
@@ -51,7 +52,8 @@ const Admin = () => {
         console.error("Error fetching bank accounts:", error.message);
         setError("Failed to fetch bank accounts");
         setLoading(false);
-        toast.error("Failed to fetch bank accounts");
+      } finally {
+        setLoading(false);
       }
     };
 

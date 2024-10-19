@@ -7,6 +7,7 @@ import Title from "../Components/Title";
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -16,6 +17,8 @@ const AdminLogin = () => {
       email: email,
       password: password,
     };
+
+    setIsLoading(true);
 
     try {
       const response = await axios.post(
@@ -49,6 +52,7 @@ const AdminLogin = () => {
         toast.error("Login failed", {
           position: "bottom-right"
         });
+        setIsLoading(false);
       }
     } catch (error) {
       if (error.response) {
@@ -62,6 +66,8 @@ const AdminLogin = () => {
       toast.error("An error occurred", {
         position: "bottom-right"
       });
+    } finally {
+      setIsLoading(false)
     }
   };
 
@@ -85,7 +91,7 @@ const AdminLogin = () => {
             required
           />
 
-          <div>
+          <div className="switch-page-btns">
             <NavLink className={`switch-page`} to="/user/signup">
               <span className="switch-login-signup">
                Sign up as a user
@@ -97,7 +103,7 @@ const AdminLogin = () => {
           </div>
 
           <button className="btn-1" type="submit">
-            Login
+            { isLoading ? 'Loading...' : 'Login' }
           </button>
         </form>
       </div>
