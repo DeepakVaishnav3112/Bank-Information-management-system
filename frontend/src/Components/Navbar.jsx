@@ -2,13 +2,16 @@ import React from 'react'
 import './Styles/Navbar.css'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
 
   const logout = () => {
     localStorage.removeItem('token')
     delete axios.defaults.headers.common['Authorization'];
-    window.location.reload()
+    navigate('/login')
   }
 
   return (
