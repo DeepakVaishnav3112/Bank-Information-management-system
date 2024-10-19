@@ -87,7 +87,7 @@ const AddBankAccount = ({ onAdd }) => {
       if (response.status === 200) {
         console.log(response.data);
         setSuccessMessage("Bank account added successfully!");
-        toast.success(successMessage, {
+        toast.success("Bank Account Added Successfully!", {
           position: "bottom-right"
         });
 

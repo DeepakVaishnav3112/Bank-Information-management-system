@@ -23,22 +23,13 @@ const Home = () => {
       if (response.status === 200) {
         setBankAccounts(response.data); // Set the bank accounts data
         setLoading(false);
-        toast.success("Bank accounts fetched successfully", {
-          position: "bottom-right"
-        });
       } else {
         setError("Failed to fetch bank accounts");
         setLoading(false);
-        toast.error("Failed to fetch bank accounts", {
-          position: "bottom-right"
-        });
       }
     } catch (error) {
       setError("Failed to fetch bank accounts");
       setLoading(false);
-      toast.error("Failed to fetch bank accounts", {
-        position: "bottom-right"
-      });
     }
   };
 
